@@ -1,0 +1,29 @@
+https://retoolapi.dev/NsPKAt/data
+See all available endpoints here (generated with json-server).
+Endpoint URL
+
+HTTP method endpoints
+
+GET
+/NsPKAt/data
+
+GET filter
+/NsPKAt/data?nombre=value
+
+GET by id
+/NsPKAt/data/1
+
+GET paginate
+/NsPKAt/data?_page=2&_limit=10
+
+POST
+/NsPKAt/data
+
+PUT
+/NsPKAt/data/1
+
+PATCH
+/NsPKAt/data/1
+
+DELETE
+/NsPKAt/data/1
