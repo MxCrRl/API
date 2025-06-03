@@ -31,7 +31,7 @@ function mostrarDatos(datos){
                 <td>${persona.edad}</td>
                 <td>
                     <button>Editar</button>
-                    <button>Eliminar</button>
+                    <button onClick="EliminarPersona(${persona.id})">Eliminar</button>
                 </td>
             </tr>
         `
@@ -55,7 +55,7 @@ btnCerrar.addEventListener("click", () => {
 });
 
 //Agregar nuevo integrante desde el formulario
-document,getElementById("frmAgregar").addEventListener("submit", async e => {
+document.getElementById("frmAgregar").addEventListener("submit", async e => {
     e.preventDefault(); //"e" representa "submit" - Evita que el formulario se envíe de golpe
 
     //Capturar los valores del formulario 
@@ -91,3 +91,16 @@ document,getElementById("frmAgregar").addEventListener("submit", async e => {
         alert("Hubo un error al agregar");
     }
 });
+
+//Función para borrar registros
+async function EliminarPersona(id) {
+    const confirmacion = confirm("¿Estas seguro que deseas eliminar el registro?");
+
+    //Validamos si el usuario dijo que si
+    if (confirmacion){
+        await  fetch(`${API_URL}/${id}`, {method: "DELETE" });
+
+        //Recargamos la tabla para ver la eliminación
+        obtenerPersonas();
+    }
+}
